@@ -4,6 +4,8 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
+                sh "git config --global credential.helper cache"
+                sh "git config --global credential.helper 'cache --timeout=3600'"
                 git branch: 'main', url: ' https://github.com/Shani1116/8.2CDevSecOps.git'
             }
         }
